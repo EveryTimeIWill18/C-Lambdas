@@ -4,6 +4,21 @@
 #include <functional>
 #include <numeric>
 
+int Sum_(std::vector<int> sequence){
+    int counter = 0;
+    std::for_each(sequence.begin(), sequence.end(),
+    [&counter](int i){counter += i;});
+    return counter;
+}
+
+template <typename T>
+inline T Sum(std::vector<T> seq){
+    T calculation = 0;
+    std::for_each(seq.begin(), seq.end(),
+    [&calculation](T i){calculation += i;});
+}
+
+
 int main(){
 
 
@@ -81,6 +96,13 @@ int main(){
 
 
 
+    std::vector<int> v = {1,2,3,4,5,6,7,8,9,10};
+    std::vector<double> w = {1.1, 2.2, 4.5, 2.12, 5.912};
+    std::cout << Sum_(v) << std::endl;
+    std::cout << Sum(w) << std::endl;
+
+    
+    
 
 
     return 0;
